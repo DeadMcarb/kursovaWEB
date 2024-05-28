@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>artists</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
+</head>
+<body>
+
+<form method="post" action="add_artist">
+    <label for="ar">New painting:</label>
+    <input id="ar" type="text" name="artist_name" class="text-input" required>
+    <input type="submit" value="Add" class="btn btn-sm btn-primary">
+</form>
+
+
+
+<script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
+<script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>
+<script th:src="@{webjars/bootstrap/5.3.0/dist/js/bootstrap.bundle.js}"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>restorers</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
+</head>
+<body>
+
+<form method="post" action="edit_restorer">
+<!--    <label for="restorer">restorer:</label>-->
+    <input type="hidden" name="restorer_id" th:value="${restorer.id}">
+    <input type="text" name="restorer_first_name" th:value="${restorer.firstName}" class="text-input">
+    <input type="text" name="restorer_second_name" th:value="${restorer.secondName}" class="text-input">
+    <input type="text" name="restorer_phone_number" th:value="${restorer.phoneNumber}" class="text-input">
+    <input type="text" name="restorer_email" th:value="${restorer.email}" class="text-input">
+
+    <input type="submit" value="Update" class="btn btn-sm btn-outline-dark">
+</form>
+
+
+
+<script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
+<script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>
+<script th:src="@{webjars/bootstrap/5.3.0/dist/js/bootstrap.bundle.js}"></script>
+</body>
+</html>

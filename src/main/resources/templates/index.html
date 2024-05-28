@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>artists</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
+</head>
+<body>
+
+<h1 th:text="'Start page'">Welcome my dear</h1>
+
+
+<a th:href="paintings" class="btn btn-sm btn-primary">paintings</a>
+<a th:href="artists" class="btn btn-sm btn-primary">artists</a>
+
+<a th:href="restorers" class="btn btn-sm btn-primary">restorers</a>
+<a th:href="restorations" class="btn btn-sm btn-primary">restorations</a>
+
+<a th:href="clients" class="btn btn-sm btn-primary">clients</a>
+
+
+
+
+<form method="post" action="add_client">
+    <input type="text" name="login" class="text-input" placeholder="login" required>
+    <input type="text" name="password" class="text-input" placeholder="password" required>
+    <input type="text" name="email" class="text-input" placeholder="email" required>
+
+    <input type="submit" value="Авторизуватись" class="btn btn-sm btn-primary">
+</form>
+
+
+<script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
+<script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>
+<script th:src="@{webjars/bootstrap/5.3.0/dist/js/bootstrap.bundle.js}"></script>
+</body>
+</html>
