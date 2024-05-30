@@ -1,10 +1,10 @@
-package org.example.kursovabd.data;
+package org.example.kursovabd.security.video2;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+import org.example.kursovabd.data.BuyExcursion;
+import org.example.kursovabd.data.Painting;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -12,17 +12,15 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@ToString//////////
-@NoArgsConstructor
-@Table(name = "client")
-public class Client {
+@Table(name = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
     private Integer id;
 
     @Lob
-    @Column(name = "login", nullable = false)
+    @Column(name = "login", unique = true, nullable = false)
     private String login;
 
     @Lob
@@ -39,7 +37,7 @@ public class Client {
     @ManyToMany
     @JoinTable(name = "favorites",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "picture_id"))
+            inverseJoinColumns = @JoinColumn(name = "painting_id"))
     private Set<Painting> paintings = new LinkedHashSet<>();
 
 }

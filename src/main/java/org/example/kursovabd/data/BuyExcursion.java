@@ -3,6 +3,7 @@ package org.example.kursovabd.data;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.kursovabd.security.video2.User;
 
 import java.time.Instant;
 
@@ -28,7 +29,7 @@ public class BuyExcursion {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private Client user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "excursion_id", nullable = false)

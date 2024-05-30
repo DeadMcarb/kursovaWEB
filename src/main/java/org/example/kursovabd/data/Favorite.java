@@ -3,6 +3,7 @@ package org.example.kursovabd.data;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.kursovabd.security.video2.User;
 
 @Getter
 @Setter
@@ -12,14 +13,14 @@ public class Favorite {
     @EmbeddedId
     private FavoriteId id;
 
-    @MapsId("pictureId")
+    @MapsId("paintingId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "picture_id", nullable = false)
-    private Painting picture;
+    @JoinColumn(name = "painting_id", nullable = false)
+    private Painting painting;
 
     @MapsId("userId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private Client user;
+    private User user;
 
 }

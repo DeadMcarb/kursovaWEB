@@ -1,22 +1,14 @@
 package org.example.kursovabd.Servises;
 
 import lombok.AllArgsConstructor;
-import org.example.kursovabd.data.Client;
-import org.example.kursovabd.repositories.ClientRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ClientService {
-    private final ClientRepository clientRepository;
+public class UserService {
 
-//    List<Client> clientList = new ArrayList<>();
 
-    public List<Client> getClients() {
-        return clientRepository.findAll();
-    }
+
 //    @Override
 //    public void Create(Connection connection, Estate estate) {
 //        try {

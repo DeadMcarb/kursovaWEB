@@ -6,16 +6,24 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
 </head>
 <body>
-<a th:href="@{/}" class="btn btn-sm btn-dark">home</a>
 
-<form th:method="patch" action="update_artist">
-    <label for="artist">Artist:</label>
-    <input id="artist" type="text" name="artist_name" th:value="${artist.name}" class="text-input">
-    <input type="hidden" name="artist_id" th:value="${artist.id}">
-    <input type="submit" value="Update" class="btn btn-sm btn-outline-dark">
+<a th:href="@{/}" class="btn btn-sm btn-dark">hub</a>
+
+
+<h1>Login</h1>
+<form th:action="@{/login}" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
 </form>
-
-
 
 
 <script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>

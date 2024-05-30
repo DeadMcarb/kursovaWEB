@@ -13,9 +13,9 @@ import java.util.Objects;
 @Setter
 @Embeddable
 public class FavoriteId implements Serializable {
-    private static final long serialVersionUID = 177462906525462490L;
-    @Column(name = "picture_id", nullable = false)
-    private Integer pictureId;
+    private static final long serialVersionUID = 4736729649059703537L;
+    @Column(name = "painting_id", nullable = false)
+    private Integer paintingId;
 
     @Column(name = "user_id", nullable = false)
     private Integer userId;
@@ -25,13 +25,13 @@ public class FavoriteId implements Serializable {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         FavoriteId entity = (FavoriteId) o;
-        return Objects.equals(this.pictureId, entity.pictureId) &&
+        return Objects.equals(this.paintingId, entity.paintingId) &&
                 Objects.equals(this.userId, entity.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pictureId, userId);
+        return Objects.hash(paintingId, userId);
     }
 
 }

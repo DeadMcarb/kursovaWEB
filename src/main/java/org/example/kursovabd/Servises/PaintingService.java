@@ -3,6 +3,7 @@ package org.example.kursovabd.Servises;
 import lombok.AllArgsConstructor;
 
 import org.example.kursovabd.data.*;
+import org.example.kursovabd.data.modelProjection.PaintingInfo;
 import org.example.kursovabd.repositories.PaintingRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,8 @@ public class PaintingService {
     public List<Painting> getPaintings() {
         return paintingRepository.findAll();
     }
+    public List<PaintingInfo> getPaintingInfo() {return paintingRepository.getPaintingInfo();};
+
 
     public void addPainting(String name, Optional<Artist> artist, Optional<Style> style, Optional<Genre> genre, Integer originaly, Double worth, Integer roomId, String description) {
         if (artist.isPresent()&&style.isPresent()&&genre.isPresent() ) {
@@ -41,11 +44,22 @@ public class PaintingService {
         return paintingRepository.findById(id);
     }
 
-    public void updatePainting(int PaintingId, String PaintingName) {
-        Optional<Painting> Painting = paintingRepository.findById(PaintingId);
+    public void updatePainting(int paintingId, String name, Optional<Artist> artist, Optional<Style> style, Optional<Genre> genre, Integer originaly, Double worth, Integer roomId, String description) {
+        Optional<Painting> Painting = paintingRepository.findById(paintingId);
+
         Painting.ifPresent(a->{
-            a.setName(PaintingName);
-            paintingRepository.save(a);
+            if (artist.isPresent()&&style.isPresent()&&genre.isPresent() ) {
+                a.setName(name);
+                a.setArtist(artist.get());
+                a.setStyle(style.get());
+                a.setGenre(genre.get());
+                a.setOriginaly(originaly);
+                a.setWorth(worth);
+                a.setRoomId(roomId);
+                a.setDescription(description);
+
+                paintingRepository.save(a);
+            }
         });
     }
 

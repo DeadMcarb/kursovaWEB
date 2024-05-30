@@ -16,30 +16,13 @@ public interface PaintingInfo {
 
     String getDescription();
 
-    ArtistInfo getArtist();
 
-    StyleInfo getStyle();
 
-    GenreInfo getGenre();
+    String getArtist();
 
-    /**
-     * Projection for {@link org.example.kursovabd.data.Artist}
-     */
-    interface ArtistInfo {
-        String getName();
-    }
+    String getStyle();
 
-    /**
-     * Projection for {@link org.example.kursovabd.data.Style}
-     */
-    interface StyleInfo {
-        String getName();
-    }
+    String getGenre();
 
-    /**
-     * Projection for {@link org.example.kursovabd.data.Genre}
-     */
-    interface GenreInfo {
-        String getName();
-    }
+    String getFavourite();
 }

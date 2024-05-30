@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.kursovabd.security.video2.User;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -55,9 +56,9 @@ public class Painting {
 
     @ManyToMany
     @JoinTable(name = "favorites",
-            joinColumns = @JoinColumn(name = "picture_id"),
+            joinColumns = @JoinColumn(name = "painting_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<Client> clients = new LinkedHashSet<>();
+    private Set<User> clients = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "painting")
     private Set<Restoration> restorations = new LinkedHashSet<>();
