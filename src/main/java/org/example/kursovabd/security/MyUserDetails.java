@@ -1,4 +1,4 @@
-package org.example.kursovabd.security.video2;
+package org.example.kursovabd.security;
 
 
 import org.springframework.security.core.GrantedAuthority;
@@ -10,8 +10,8 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
-    private MyUser user;
-    public MyUserDetails(MyUser user) {
+    private User user;
+    public MyUserDetails(User user) {
         this.user = user;
     }
 

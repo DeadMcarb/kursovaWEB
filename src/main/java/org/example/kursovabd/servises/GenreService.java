@@ -1,7 +1,6 @@
-package org.example.kursovabd.Servises;
+package org.example.kursovabd.servises;
 
 import lombok.AllArgsConstructor;
-import org.example.kursovabd.data.Genre;
 import org.example.kursovabd.data.Genre;
 import org.example.kursovabd.repositories.GenreRepository;
 import org.springframework.stereotype.Service;

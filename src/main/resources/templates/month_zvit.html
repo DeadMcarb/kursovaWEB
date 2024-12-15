@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Excursion Revenue</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        /* Define style for the last row in the table */
+        .last-row {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Revenue per Excursion</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Month </th>
+            <th>Total Revenue</th>
+            <th>Total Number of People</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="excursion : ${excursionRevenue}">
+            <td th:text="${excursion.getExcursionName()}"></td>
+            <td th:text="${excursion.getTotalNumberOfPeople()}"></td>
+            <td th:text="${excursion.getTotalPerExcursion()}"></td>
+        </tr>
+        </tbody>
+        <!-- Adding a last row with overall totals -->
+        <tfoot>
+        <tr class="last-row">
+            <td>Total Overall:</td>
+            <td th:text="${excursionRevenue[0].getTotalGuests()}"></td>
+            <td th:text="${excursionRevenue[0].getTotalIncome()}"></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="revenueChart" width="400" height="200"></canvas>
+
+<script>
+    // Get data from the table
+    var excursionNames = [];
+    var totalRevenues = [];
+    var totalNumbers = [];
+    var rows = document.querySelectorAll('tbody tr');
+    rows.forEach(function (row) {
+        var cells = row.querySelectorAll('td');
+        excursionNames.push(cells[0].innerText);
+        totalRevenues.push(parseInt(cells[1].innerText));
+        totalNumbers.push(parseInt(cells[2].innerText));
+    });
+
+    // Create the chart
+    var ctx = document.getElementById('revenueChart').getContext('2d');
+    var revenueChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: excursionNames,
+            datasets: [{
+                label: 'Total Revenue',
+                data: totalRevenues,
+                backgroundColor: 'rgba(255, 99, 132, 0.5)', // Red color with transparency
+                borderColor: 'rgba(255, 99, 132, 1)', // Solid red color
+                borderWidth: 1
+            }, {
+                label: 'Total Number of People',
+                data: totalNumbers,
+                backgroundColor: 'rgba(54, 162, 235, 0.5)', // Blue color with transparency
+                borderColor: 'rgba(54, 162, 235, 1)', // Solid blue color
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

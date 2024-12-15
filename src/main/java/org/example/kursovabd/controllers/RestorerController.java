@@ -1,8 +1,8 @@
 package org.example.kursovabd.controllers;
 
 import lombok.AllArgsConstructor;
-import org.example.kursovabd.Servises.RestorerService;
 import org.example.kursovabd.data.Restorer;
+import org.example.kursovabd.servises.RestorerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +21,11 @@ public class RestorerController {
         model.addAttribute("restorers", rs.getRestorers());
         rs.getRestorers().forEach(c -> System.out.println(c.toString()));
         return "restorers";
+    }
+
+    @GetMapping("/add_restorer")
+    public String showRestorerForm(Model model) {
+        return "add_restorer";
     }
 
     @PostMapping("/add_restorer")

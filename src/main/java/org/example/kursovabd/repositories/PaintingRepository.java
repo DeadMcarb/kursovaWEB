@@ -1,6 +1,5 @@
 package org.example.kursovabd.repositories;
 
-
 import org.example.kursovabd.data.Painting;
 import org.example.kursovabd.data.modelProjection.PaintingInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -35,11 +34,11 @@ SELECT
     p.room_id AS roomId,
     p.description AS description,
     COUNT(f.user_id) AS favourite
-FROM paintings p
-JOIN artists a ON p.artist_id = a.artist_id
-JOIN styles s ON p.style_id = s.style_id
-JOIN genres g ON p.genre_id = g.genres_id
-LEFT JOIN favorites f ON p.painting_id = f.painting_id
+FROM painting p
+JOIN artist a ON p.artist_id = a.artist_id
+JOIN style s ON p.style_id = s.style_id
+JOIN genre g ON p.genre_id = g.genres_id
+LEFT JOIN favorite f ON p.painting_id = f.painting_id
 GROUP BY
     p.painting_id,
     p.name,

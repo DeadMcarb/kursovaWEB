@@ -1,26 +1,18 @@
 package org.example.kursovabd.data;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.kursovabd.security.video2.User;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "favorites")
+@Table(name = "favorite")
 public class Favorite {
     @EmbeddedId
     private FavoriteId id;
 
-    @MapsId("paintingId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "painting_id", nullable = false)
-    private Painting painting;
-
-    @MapsId("userId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
+    //TODO [Reverse Engineering] generate columns from DB
 }

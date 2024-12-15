@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>artists</title>
+    <title>Artists</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
 </head>
 <body>
 
-<a th:href="paintings" class="btn btn-sm btn-primary">paintings</a>
-<a th:href="artists" class="btn btn-sm btn-primary">artists</a>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-end">
+            <form th:action="@{/logout}" method="post" class="d-inline">
+                <button type="submit" class="btn btn-sm btn-dark">Logout</button>
+            </form>
+        </div>
+    </div>
 
-<a th:href="restorers" class="btn btn-sm btn-primary">restorers</a>
-<a th:href="restorations" class="btn btn-sm btn-primary">restorations</a>
-
-<a th:href="clients" class="btn btn-sm btn-primary">clients</a>
-
-
-
-
-<form method="post" action="add_client">
-    <input type="text" name="login" class="text-input" placeholder="login" required>
-    <input type="text" name="password" class="text-input" placeholder="password" required>
-    <input type="text" name="email" class="text-input" placeholder="email" required>
-
-    <input type="submit" value="Авторизуватись" class="btn btn-sm btn-primary">
-</form>
-
+    <div class="row mt-3">
+        <div class="col-12 text-center">
+            <a th:href="buyExcursion" class="btn btn-lg btn-primary m-2">Buy Excursion/Ticket</a>
+            <a th:href="boughtExcursions" class="btn btn-lg btn-primary m-2">Bought Excursions</a>
+            <a th:href="paintings" class="btn btn-lg btn-primary m-2">Paintings</a>
+            <a th:href="artists" class="btn btn-lg btn-primary m-2">Artists</a>
+            <a th:href="restorers" class="btn btn-lg btn-primary m-2">Restorers</a>
+            <a th:href="restorations" class="btn btn-lg btn-primary m-2">Restorations</a>
+            <a th:href="feedback" class="btn btn-lg btn-primary m-2">Feedback</a>
+        </div>
+    </div>
+</div>
 
 <script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
 <script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>

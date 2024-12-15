@@ -1,8 +1,8 @@
 package org.example.kursovabd.controllers;
 
 import lombok.AllArgsConstructor;
-import org.example.kursovabd.Servises.ArtistService;
 import org.example.kursovabd.data.Artist;
+import org.example.kursovabd.servises.ArtistService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

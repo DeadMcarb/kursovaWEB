@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>artists</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
+</head>
+<body>
+
+<a th:href="@{/home}" class="btn btn-sm btn-dark">home</a>
+<a th:href="@{/zvit}" class="btn btn-sm btn-dark">zvit</a>
+<a th:href="@{/month_zvit}" class="btn btn-sm btn-dark">month zvit</a>
+
+<table class="table table-sm table-striped table-hover table-bordered" >
+  <thead class="table-info">
+  <tr>
+    <th>#</th>
+    <th>Excursion</th>
+    <th>Login</th>
+    <th>Date</th>
+    <th>NumberOfPeopleToExcursion</th>
+    <th>BankCardDetails</th>
+    <th>Total</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="a: ${boughtExcursions}">
+    <td th:text="${a.getOperationID()}"></td>
+    <td th:text="${a.getExcursionName()}"></td>
+    <td th:text="${a.getLogin()}"></td>
+    <td th:text="${a.getDate()}"></td>
+    <td th:text="${a.getNumberOfPeopleToExcursion()}"></td>
+    <td th:text="${a.getBankCardDetails()}"></td>
+    <td th:text="${a.getTotal()}"></td>
+
+  </tr>
+  </tbody>
+</table>
+
+
+<script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
+<script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>
+<script th:src="@{webjars/bootstrap/5.3.0/dist/js/bootstrap.bundle.js}"></script>
+</body>
+</html>

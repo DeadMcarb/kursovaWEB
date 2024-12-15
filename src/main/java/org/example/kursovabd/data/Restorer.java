@@ -5,9 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 @Getter
 @Setter
 @Entity
@@ -35,15 +32,10 @@ public class Restorer {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "restorer")
-    private Set<Restoration> restorations = new LinkedHashSet<>();
-
     public Restorer(String firstName, String secondName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-
-
 }

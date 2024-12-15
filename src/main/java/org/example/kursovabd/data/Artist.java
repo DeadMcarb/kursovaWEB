@@ -5,14 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "artists")
+@Table(name = "artist")
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +19,6 @@ public class Artist {
     @Lob
     @Column(name = "name", nullable = false)
     private String name;
-
-    @OneToMany(mappedBy = "artist")
-    private Set<Painting> paintings = new LinkedHashSet<>();
 
     public Artist(String name) {
         this.name = name;

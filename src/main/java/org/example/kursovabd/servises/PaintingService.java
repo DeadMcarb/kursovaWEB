@@ -1,9 +1,15 @@
-package org.example.kursovabd.Servises;
+package org.example.kursovabd.servises;
 
 import lombok.AllArgsConstructor;
 
-import org.example.kursovabd.data.*;
+
+import org.example.kursovabd.data.Artist;
+import org.example.kursovabd.data.Genre;
+import org.example.kursovabd.data.Painting;
+import org.example.kursovabd.data.Style;
 import org.example.kursovabd.data.modelProjection.PaintingInfo;
+
+
 import org.example.kursovabd.repositories.PaintingRepository;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +41,6 @@ public class PaintingService {
         }
     }
 
-
     public void deletePainting(int id) {
         paintingRepository.deleteById(id);
     }
@@ -63,16 +68,4 @@ public class PaintingService {
         });
     }
 
-//    public void updateRestorer(int RestorerId, String restorer_first_name,
-//                               String restorer_second_name,
-//                               String restorer_phone_number, String restorer_email) {
-//        Optional<Restorer> Restorer = restorerRepository.findById(RestorerId);
-//        Restorer.ifPresent(a->{
-//            a.setFirstName(restorer_first_name);
-//            a.setSecondName(restorer_second_name);
-//            a.setPhoneNumber(restorer_phone_number);
-//            a.setEmail(restorer_email);
-//            restorerRepository.save(a);
-//        });
-//    }
 }

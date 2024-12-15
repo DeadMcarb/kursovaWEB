@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import java.time.Instant;
 
-
 @Getter
 @Setter
 @Entity
@@ -38,9 +37,6 @@ public class Restoration {
 
     @Column(name = "price", nullable = false)
     private Double price;
-
-    @Basic
-    private java.time.Instant instant;
 
     public Restoration(Restorer restorer, Painting painting, Instant startDate, Instant endDate, Integer status, Double price) {
         this.restorer = restorer;

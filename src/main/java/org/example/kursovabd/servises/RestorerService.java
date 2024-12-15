@@ -1,4 +1,4 @@
-package org.example.kursovabd.Servises;
+package org.example.kursovabd.servises;
 
 import lombok.AllArgsConstructor;
 import org.example.kursovabd.data.Restorer;

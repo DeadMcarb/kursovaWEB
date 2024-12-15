@@ -1,4 +1,4 @@
-package org.example.kursovabd.security.video2;
+package org.example.kursovabd.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,10 +11,10 @@ import java.util.Optional;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
-    private MyUserRepository us;
+    private UserRepository us;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<MyUser> user = us.findByName(username);
+        Optional<User> user = us.findByName(username);
         return user.map(MyUserDetails::new)
                 .orElseThrow( ()-> new UsernameNotFoundException(username + "not found"));
     }

@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>restorers</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
 </head>
 <body>
-<a th:href="@{/}" class="btn btn-sm btn-dark">home</a>
+<a th:href="@{/home}" class="btn btn-sm btn-dark">home</a>
 
-<form method="post" action="edit_restorer">
-<!--    <label for="restorer">restorer:</label>-->
+<form method="post" action="edit_restorer" class="mt-3">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <input type="hidden" name="restorer_id" th:value="${restorer.id}">
-    <input type="text" name="restorer_first_name" th:value="${restorer.firstName}" class="text-input">
-    <input type="text" name="restorer_second_name" th:value="${restorer.secondName}" class="text-input">
-    <input type="text" name="restorer_phone_number" th:value="${restorer.phoneNumber}" class="text-input">
-    <input type="text" name="restorer_email" th:value="${restorer.email}" class="text-input">
+
+    <div class="mb-3">
+        <label for="restorerFirstName" class="form-label">First Name:</label>
+        <input type="text" id="restorerFirstName" name="restorer_first_name" th:value="${restorer.firstName}" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="restorerSecondName" class="form-label">Second Name:</label>
+        <input type="text" id="restorerSecondName" name="restorer_second_name" th:value="${restorer.secondName}" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="restorerPhoneNumber" class="form-label">Phone Number:</label>
+        <input type="text" id="restorerPhoneNumber" name="restorer_phone_number" th:value="${restorer.phoneNumber}" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="restorerEmail" class="form-label">Email:</label>
+        <input type="text" id="restorerEmail" name="restorer_email" th:value="${restorer.email}" class="form-control">
+    </div>
 
     <input type="submit" value="Update" class="btn btn-sm btn-outline-dark">
 </form>
-
-
 
 <script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
 <script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>

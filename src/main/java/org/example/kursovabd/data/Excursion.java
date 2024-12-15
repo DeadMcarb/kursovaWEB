@@ -4,31 +4,32 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 @Getter
 @Setter
 @Entity
-@Table(name = "excursions")
+@Table(name = "excursion")
 public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "`excursion id`", nullable = false)
+    @Column(name = "excursion_id", nullable = false)
     private Integer id;
+
+    @Lob
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "type_id", nullable = false)
     private Type type;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "language_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "language_id")
     private Language language;
 
-    @Column(name = "`maximum number of persons`", nullable = false)
+    @Column(name = "`maximum number of persons`")
     private Integer maximumNumberOfPersons;
 
-    @OneToMany(mappedBy = "excursion")
-    private Set<BuyExcursion> buyExcursions = new LinkedHashSet<>();
+    @Column(name = "price", nullable = false)
+    private Double price;
 
 }

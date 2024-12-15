@@ -4,18 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.kursovabd.security.video2.User;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "paintings")
+@Table(name = "painting")
 public class Painting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,16 +50,6 @@ public class Painting {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @ManyToMany
-    @JoinTable(name = "favorites",
-            joinColumns = @JoinColumn(name = "painting_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> clients = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "painting")
-    private Set<Restoration> restorations = new LinkedHashSet<>();
-
-
     public Painting(String name, Artist artist, Style style, Genre genre, Integer originaly, Double worth, Integer roomId, String description) {
         this.name = name;
         this.artist = artist;
@@ -75,9 +61,3 @@ public class Painting {
         this.description = description;
     }
 }
-
-
-
-
-
-

@@ -14,11 +14,11 @@ import java.util.Objects;
 @Embeddable
 public class FavoriteId implements Serializable {
     private static final long serialVersionUID = 4736729649059703537L;
-    @Column(name = "painting_id", nullable = false)
-    private Integer paintingId;
-
     @Column(name = "user_id", nullable = false)
     private Integer userId;
+
+    @Column(name = "painting_id", nullable = false)
+    private Integer paintingId;
 
     @Override
     public boolean equals(Object o) {
