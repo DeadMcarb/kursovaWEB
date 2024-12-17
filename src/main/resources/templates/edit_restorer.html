@@ -9,8 +9,7 @@
 <a th:href="@{/home}" class="btn btn-sm btn-dark">home</a>
 
 <form method="post" action="edit_restorer" class="mt-3">
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-    <input type="hidden" name="restorer_id" th:value="${restorer.id}">
+       <input type="hidden" name="restorer_id" th:value="${restorer.id}">
 
     <div class="mb-3">
         <label for="restorerFirstName" class="form-label">First Name:</label>

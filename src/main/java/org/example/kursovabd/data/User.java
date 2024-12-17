@@ -1,15 +1,9 @@
-package org.example.kursovabd.security;
+package org.example.kursovabd.data;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.kursovabd.data.BuyExcursion;
-import org.example.kursovabd.data.Favorite;
-
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Getter
 @Setter

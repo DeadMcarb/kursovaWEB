@@ -5,18 +5,20 @@
 </head>
 <body>
 <h1>Please Log In</h1>
-<div th:if="${param.error}">
-    Invalid username and password.</div>
-<div th:if="${param.logout}">
-    You have been logged out.</div>
-<form th:action="@{/login}" method="post">
+<!--<div th:if="${param.error}">-->
+<!--    Invalid username and password.</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--    You have been logged out.</div>-->
+<form method="post" action="login">
     <div>
-        <input type="text" name="username" placeholder="Username"/>
+        <input type="text" name="name" placeholder="name"/>
     </div>
     <div>
-        <input type="password" name="password" placeholder="Password"/>
+        <input type="text" name="password" placeholder="password"/>
     </div>
     <input type="submit" value="Log in" />
 </form>
+
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ласкаво просимо до нашого музею</title>
+    <title>Митці</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/dist/css/bootstrap.css}">
     <style>
         body {
@@ -61,20 +61,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" th:href="paintings">Картини</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="artists">Митці</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="feedback">Зворотній зв'язок</a></li>
+
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="hero">
-    <h1>Ласкаво просимо до нашого музею</h1>
-    <p>Відкрийте для себе красу мистецтва та історії в одному місці.</p>
+    <h1>Кабінет адміністратора</h1>
+    <!--    <p>Кабінет адміністратора</p>-->
     <div class="buttons">
-        <a th:href="buyExcursion" class="btn btn-light">Придбати квитки</a>
-        <a th:href="buyExcursion" class="btn btn-light">Придбати квитки</a>
+        <a th:href="boughtExcursions" class="btn btn-primary">Придбані екскурсії</a>
+        <a th:href="restorations" class="btn btn-primary">Реставрації</a>
+        <a th:href="restorers" class="btn btn-primary">Реставратори</a>
+
+        <a th:href="paintings" class="btn btn-light">Картини</a>
+        <a th:href="artists" class="btn btn-light">Митці</a>
 
     </div>
 </div>
@@ -83,8 +85,8 @@
     <p>&copy; 2024 Музей | Усі права захищено</p>
 </footer>
 
-<script th:src="@{webjars/jquery/3.7.0/dist/jquery.js}"></script>
-<script th:src="@{webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>
-<script th:src="@{webjars/bootstrap/5.3.0/dist/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/webjars/jquery/3.7.0/dist/jquery.js}"></script>
+<script th:src="@{/webjars/popperjs__core/2.11.8/dist/umd/popper.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.0/dist/js/bootstrap.bundle.js}"></script>
 </body>
 </html>

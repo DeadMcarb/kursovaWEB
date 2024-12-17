@@ -14,8 +14,7 @@
     <h2 class="mb-4">Update Painting</h2>
 
     <form th:method="patch" action="update_painting" class="row g-3">
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-        <input type="hidden" name="paintingId" th:value="${painting.id}">
+              <input type="hidden" name="paintingId" th:value="${painting.id}">
 
         <div class="col-md-6">
             <label for="ar" class="form-label">New painting:</label>

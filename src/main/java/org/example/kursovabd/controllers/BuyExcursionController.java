@@ -1,14 +1,13 @@
 package org.example.kursovabd.controllers;
 
 import lombok.AllArgsConstructor;
+import org.example.kursovabd.KursovaBDApplication;
 import org.example.kursovabd.data.Excursion;
-import org.example.kursovabd.security.User;
+import org.example.kursovabd.data.User;
 import org.example.kursovabd.servises.BuyExcursionService;
 import org.example.kursovabd.servises.ExcursionService;
 
-import org.example.kursovabd.security.UserService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.example.kursovabd.servises.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -59,14 +58,22 @@ public class BuyExcursionController {
     public String buyExcursion(@RequestParam String bankCardDetails,
                                @RequestParam Integer numberOfPeopleToExcursion,
                                @RequestParam Integer excursionId) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentUsername = authentication.getName();
-        Optional<User> currentUser = us.findByName(currentUsername);
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String currentUsername = authentication.getName();
+//        Optional<User> currentUser = us.findByName(currentUsername);
 
-        if(currentUser.isPresent()) {
+//
+//        if(currentUser.isPresent()) {
             Excursion e = es.findById(excursionId).get();
-            bes.addBoughtExcursion(Instant.now(), bankCardDetails, numberOfPeopleToExcursion, currentUser.get(), e, e.getPrice()*numberOfPeopleToExcursion);
-        }
+
+
+///////////////////////////
+            User user = KursovaBDApplication.currentUser;
+///////////////////////////
+
+
+            bes.addBoughtExcursion(Instant.now(), bankCardDetails, numberOfPeopleToExcursion, user, e, e.getPrice()*numberOfPeopleToExcursion);
+//        }
 
         return "redirect:/home";
     }

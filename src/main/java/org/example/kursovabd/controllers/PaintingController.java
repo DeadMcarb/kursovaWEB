@@ -36,6 +36,7 @@ public class PaintingController {
         return "add_painting";
     }
 
+
     @PostMapping("/add_painting")
     public String addPainting(@RequestParam String name, @RequestParam Integer artistId,
                                          @RequestParam Integer styleId, @RequestParam Integer genreId,

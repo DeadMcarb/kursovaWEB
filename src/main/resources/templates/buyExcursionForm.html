@@ -24,25 +24,24 @@
 <body>
 
 <div class="container">
-    <a th:href="@{/home}" class="btn btn-dark mb-3">Home</a>
+    <a th:href="@{/home}" class="btn btn-dark mb-3">На головну</a>
 
     <div class="form-container">
-        <h2 class="mb-4">Buy Excursion</h2>
+        <h2 class="mb-4">Купити єкскурсію або квиток</h2>
         <form method="post" action="buyExcursion">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
             <div class="form-group mb-3">
-                <label for="p2">Bank Card Details:</label>
+                <label for="p2">Платіжні данні</label>
                 <input id="p2" type="text" name="bankCardDetails" class="form-control" required>
             </div>
 
             <div class="form-group mb-3">
-                <label for="p3">Number of People to Excursion:</label>
+                <label for="p3">Кількість людей</label>
                 <input id="p3" type="number" name="numberOfPeopleToExcursion" class="form-control" required>
             </div>
 
             <div class="form-group mb-4">
-                <label for="p5">Excursion:</label>
+                <label for="p5">Послуга</label>
                 <select id="p5" name="excursionId" class="form-select" required>
                     <option value="">Select</option>
                     <option th:each="s : ${excursions}" th:value="${s.id}" th:text="${s.name}"></option>

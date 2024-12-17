@@ -7,7 +7,7 @@ import org.example.kursovabd.data.modelProjection.BoughtExcursionInfo;
 import org.example.kursovabd.data.modelProjection.BoughtExcursionMonthZvit;
 import org.example.kursovabd.data.modelProjection.BoughtExcursionZvit;
 import org.example.kursovabd.repositories.BuyExcursionRepository;
-import org.example.kursovabd.security.User;
+import org.example.kursovabd.data.User;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
